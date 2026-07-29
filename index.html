@@ -291,6 +291,17 @@
   document.getElementById("btn-localiser").addEventListener("click", demarrerRecherche);
   document.getElementById("btn-reessayer").addEventListener("click", demarrerRecherche);
 
+  function avecDirection(decimal, estLatitude){
+    var abs = Math.abs(decimal);
+    var direction;
+    if(estLatitude){
+      direction = decimal >= 0 ? "N" : "S";
+    } else {
+      direction = decimal >= 0 ? "E" : "O";
+    }
+    return abs + direction;
+  }
+
   document.getElementById("btn-envoyer-sms").addEventListener("click", function(){
     if(!dernierePosition) return;
     var lat = dernierePosition.coords.latitude;
@@ -298,7 +309,8 @@
     var lienMaps = "https://maps.google.com/?q=" + lat + "," + lon;
     var texte = "Je nécessite des moyens de secours, voici ma position :\n\n" +
                 lienMaps +
-                "\n\nLat : " + lat + " / Lon : " + lon;
+                "\n\nLat : " + avecDirection(lat, true) +
+                "\nLon : " + avecDirection(lon, false);
     window.location.href = construireLienSMS(telSecouriste, texte);
   });
 
