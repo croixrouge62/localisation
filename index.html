@@ -142,7 +142,7 @@
 
 <header>
   <div class="croix" aria-hidden="true"></div>
-  <h1>Demande de localisation - Secours</h1>
+  <h1>Demande de localisation - CROIX-ROUGE FRANCAISE</h1>
 </header>
 
 <main>
@@ -194,7 +194,7 @@
       </svg>
     </div>
     <h2>Position trouvée</h2>
-    <p class="desc">Appuyez sur le bouton pour ouvrir le SMS prêt à envoyer aux secours.</p>
+    <p class="desc">Appuyez sur le bouton pour envoyer votre position par SMS.</p>
     <button class="btn-principal" id="btn-envoyer-sms" type="button">Ouvrir le SMS à envoyer</button>
     <p class="coords" id="coords-affichees"></p>
   </div>
@@ -297,7 +297,7 @@
     var lat = dernierePosition.coords.latitude;
     var lon = dernierePosition.coords.longitude;
     var lienMaps = "https://maps.google.com/?q=" + lat + "," + lon;
-    var texte = "Voici ma position pour " + nomAssociation + " : " + lienMaps;
+    var texte = "Je nécessite des moyens de secours, voici ma position : " + lienMaps;
     window.location.href = construireLienSMS(telSecouriste, texte);
   });
 
