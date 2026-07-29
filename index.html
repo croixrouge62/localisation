@@ -296,7 +296,9 @@
     var lat = dernierePosition.coords.latitude;
     var lon = dernierePosition.coords.longitude;
     var lienMaps = "https://maps.google.com/?q=" + lat + "," + lon;
-    var texte = "Je nécessite des moyens de secours, voici ma position : " + lienMaps + "Lat : " + lat + " / Lon : " + lon;
+    var texte = "Je nécessite des moyens de secours, voici ma position :\n\n" +
+                lienMaps +
+                "\n\nLat : " + lat + " / Lon : " + lon;
     window.location.href = construireLienSMS(telSecouriste, texte);
   });
 
